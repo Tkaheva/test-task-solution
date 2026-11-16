@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-"""
-Отчёт «аванс по договору» на дату.
-
-Использование:
-    python report.py --data-dir data --as-of 2026-11-10
-    python report.py --data-dir data --as-of 2026-11-10 --format csv --out report.csv
-    python report.py --data-dir data --as-of 2026-11-10 --format json
-"""
 
 from __future__ import annotations
 
@@ -144,7 +136,7 @@ def work_cancelled_on(w: Work, as_of: date) -> bool:
 def work_relevant_on(w: Work, as_of: date) -> bool:
     """Работа учитывается в отчёте, если она уже существует к дате."""
     if w.status == "planned":
-        return True  # запланирована — цена входит в «осталось оплатить»
+        return True  
     if w.status == "done":
         return work_done_on(w, as_of)
     if w.status == "cancelled":
@@ -170,7 +162,6 @@ class WorkReport:
 
     @property
     def remaining(self) -> Decimal:
-        # отменённые работы не требуют доплаты
         if self.status == "cancelled":
             return Decimal("0.00")
         return max(self.price - self.paid, Decimal("0.00"))
@@ -216,7 +207,6 @@ def build_report(contracts, works, payments, as_of: date) -> list[ContractReport
         cr = reports.get(cid)
         if cr is None:
             continue
-        # сортировка FIFO: по work_id (стабильно и прозрачно)
         for w in sorted(ws, key=lambda x: x.work_id):
             cr.works.append(WorkReport(
                 work_id=w.work_id, contract_id=w.contract_id, title=w.title,
@@ -242,7 +232,6 @@ def build_report(contracts, works, payments, as_of: date) -> list[ContractReport
                 wr.paid_direct += p.amount
             elif payment_is_queued_on(p, as_of):
                 wr.queued += p.amount
-            # refunded — игнорируем в выплачено
         else:
             if payment_is_paid_on(p, as_of):
                 common_paid[p.contract_id] = common_paid.get(p.contract_id, Decimal("0.00")) + p.amount
@@ -263,7 +252,7 @@ def build_report(contracts, works, payments, as_of: date) -> list[ContractReport
             take = min(need, pool)
             wr.paid_from_common = take
             pool -= take
-        cr.common_paid = pool  # нераспределённый остаток (переплата/аванс вперёд)
+        cr.common_paid = pool  
         cr.common_queued = common_queued.get(cid, Decimal("0.00"))
 
     return [reports[c.contract_id] for c in contracts if c.contract_id in reports]
