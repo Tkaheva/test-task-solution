@@ -1,0 +1,117 @@
+{
+  "as_of": "2026-11-10",
+  "contracts": [
+    {
+      "contract_id": "D-1",
+      "contractor": "Студия «Свет»",
+      "amount": "600000.00",
+      "total_paid": "315000.00",
+      "total_remaining": "185000.00",
+      "total_queued": "150000.00",
+      "common_paid": "0.00",
+      "common_queued": "150000.00",
+      "works": [
+        {
+          "work_id": "W-11",
+          "title": "Съёмка: весенняя коллекция",
+          "status": "done",
+          "price": "100000.00",
+          "paid": "100000.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "100000.00",
+          "remaining": "0.00",
+          "queued": "0.00"
+        },
+        {
+          "work_id": "W-12",
+          "title": "Съёмка: лето",
+          "status": "done",
+          "price": "100000.00",
+          "paid": "100000.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "100000.00",
+          "remaining": "0.00",
+          "queued": "0.00"
+        },
+        {
+          "work_id": "W-13",
+          "title": "Съёмка: аксессуары",
+          "status": "cancelled",
+          "price": "100000.00",
+          "paid": "0.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "0.00",
+          "remaining": "0.00",
+          "queued": "0.00"
+        },
+        {
+          "work_id": "W-14",
+          "title": "Съёмка: осень",
+          "status": "done",
+          "price": "100000.00",
+          "paid": "100000.00",
+          "paid_direct": "15000.00",
+          "paid_from_common": "85000.00",
+          "remaining": "0.00",
+          "queued": "0.00"
+        },
+        {
+          "work_id": "W-15",
+          "title": "Съёмка: зима",
+          "status": "planned",
+          "price": "100000.00",
+          "paid": "15000.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "15000.00",
+          "remaining": "85000.00",
+          "queued": "0.00"
+        },
+        {
+          "work_id": "W-16",
+          "title": "Съёмка: новогодняя",
+          "status": "planned",
+          "price": "100000.00",
+          "paid": "0.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "0.00",
+          "remaining": "100000.00",
+          "queued": "0.00"
+        }
+      ]
+    },
+    {
+      "contract_id": "D-2",
+      "contractor": "Иван Петров, дизайнер",
+      "amount": "90000.00",
+      "total_paid": "75000.00",
+      "total_remaining": "0.00",
+      "total_queued": "0.00",
+      "common_paid": "25000.00",
+      "common_queued": "0.00",
+      "works": [
+        {
+          "work_id": "W-21",
+          "title": "Логотип",
+          "status": "done",
+          "price": "20000.00",
+          "paid": "20000.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "20000.00",
+          "remaining": "0.00",
+          "queued": "0.00"
+        },
+        {
+          "work_id": "W-22",
+          "title": "Фирменный стиль",
+          "status": "done",
+          "price": "30000.00",
+          "paid": "30000.00",
+          "paid_direct": "0.00",
+          "paid_from_common": "30000.00",
+          "remaining": "0.00",
+          "queued": "0.00"
+        }
+      ]
+    }
+  ]
+}
